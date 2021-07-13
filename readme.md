@@ -1,3 +1,3 @@
 # GO PROJECTS
 
-## Basic and inter projects in go
+## Basic and intermediate level projects in go
