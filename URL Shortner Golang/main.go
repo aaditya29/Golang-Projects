@@ -10,4 +10,15 @@ func main() {
 
 	yamlBytes := getFileBytes(config.PathToYAML)
 	jsonBytes := getFileBytes(config.PathToJSON)
+
+	mux := makeDefaultMux()
+	mapHandler := makeMapHandler(mux)
+
+	handler := mapHandler
+	if yamlBytes != nil {
+		handler = makeYAMLHandler(yamlBytes, &mapHandler)
+	} else if jsonBytes != nil {
+		handler = makeJSONHandler(jsonBytes, &mapHandler)
+	}
+	startServer(handler)
 }
