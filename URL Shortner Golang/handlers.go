@@ -9,5 +9,13 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 	*/
 
 	// If the path is not provided in the map, then the fallback http.Handler will be called instead.
+	return func(w http.ResponseWriter, r *http.Request) {
+		originalURL, ok := pathsToUrls[r.URL.Path]
+		if ok {
+			http.Redirect(w, r, originalURL, 301)
+		} else {
+			fallback.ServeHTTP(w, r)
+		}
+	}
 
 }
