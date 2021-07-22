@@ -19,3 +19,7 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 	}
 
 }
+
+func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
+
+}
