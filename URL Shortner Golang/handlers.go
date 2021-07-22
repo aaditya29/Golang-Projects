@@ -56,3 +56,7 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 		fallback.ServeHTTP(w, r)
 	}, nil
 }
+
+func JSONHandler(JSON []byte, fallback http.Handler) (http.HandlerFunc, error) {
+
+}
