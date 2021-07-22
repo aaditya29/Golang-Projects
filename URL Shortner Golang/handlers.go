@@ -39,4 +39,6 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 
 	// The only errors that can be returned all related to havinginvalid YAML data.
 
+	// Also MapHandler creates similar http.HandlerFunc via a mapping of paths to urls.
+
 }
