@@ -41,4 +41,10 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 
 	// Also MapHandler creates similar http.HandlerFunc via a mapping of paths to urls.
 
+	var mappers []URLMapper
+	err := yaml.Unmarshal(YAML, &mappers)
+	if err != nil {
+		return nil, err
+	}
+
 }
