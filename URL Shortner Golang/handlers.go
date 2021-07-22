@@ -1,6 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
 	/*
@@ -58,5 +61,10 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 }
 
 func JSONHandler(JSON []byte, fallback http.Handler) (http.HandlerFunc, error) {
+	var mappers []URLMapper
+	err := json.Unmarshal(JSON, &mappers)
+	if err != nil {
+		return nil, err
+	}
 
 }
