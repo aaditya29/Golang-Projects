@@ -46,5 +46,13 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	return func(w http.ResponseWriter, r *http.Request) {
+		for _, mapper := range mappers {
+			if mapper.Path == r.URL.Path {
+				http.Redirect(w, r, mapper.URL, 301)
+				return
+			}
+		}
+		fallback.ServeHTTP(w, r)
+	}, nil
 }
