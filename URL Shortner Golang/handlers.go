@@ -37,8 +37,6 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 		If the path is not provided in the YAML, then the fallback http.Handler will be called instead.
 	*/
 
-	/*
-
-	 */
+	// The only errors that can be returned all related to havinginvalid YAML data.
 
 }
