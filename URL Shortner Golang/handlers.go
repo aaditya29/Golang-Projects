@@ -20,6 +20,16 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 
 }
 
+type URLMapper struct {
+	/*
+		YAML is expected to be in the format:
+		path: /some-path
+		url: https://www.some-url.com/demo
+	*/
+	Path string `yaml:"path" json:"path"`
+	URL  string `yaml:"url" json:"url"`
+}
+
 func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	/*
 		Here, YAMLHandler will parse the provided YAML and then return an http.HandlerFunc (which also implements http.Handler)
@@ -28,9 +38,7 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	*/
 
 	/*
-		YAML is expected to be in the format:
-		path: /some-path
-		url: https://www.some-url.com/demo
-	*/
+
+	 */
 
 }
