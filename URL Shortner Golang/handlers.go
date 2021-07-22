@@ -27,4 +27,10 @@ func YAMLHandler(YAML []byte, fallback http.Handler) (http.HandlerFunc, error) {
 		If the path is not provided in the YAML, then the fallback http.Handler will be called instead.
 	*/
 
+	/*
+		YAML is expected to be in the format:
+		path: /some-path
+		url: https://www.some-url.com/demo
+	*/
+
 }
