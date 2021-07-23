@@ -1,6 +1,9 @@
 package main
 
-import "flag"
+import (
+	"flag"
+	"io/ioutil"
+)
 
 type Config struct { // Config is a struct describing the configuration which are parsed from command line arguments
 	PathToYAML string
@@ -31,4 +34,12 @@ func getConfig() *Config {
 	flag.StringVar(&config.PathToJSON, "json", "", "--json=path/to/file.json")
 	flag.Parse()
 	return &config
+}
+
+func getFileBytes(pathToFile string) []byte {
+	bytes, err := ioutil.ReadFile(pathToFile)
+	if err != nil {
+		return nil
+	}
+	return bytes
 }
