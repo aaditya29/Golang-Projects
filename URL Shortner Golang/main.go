@@ -1,5 +1,7 @@
 package main
 
+import "flag"
+
 type Config struct { // Config is a struct describing the configuration which are parsed from command line arguments
 	PathToYAML string
 	PathToJSON string
@@ -21,4 +23,12 @@ func main() {
 		handler = makeJSONHandler(jsonBytes, &mapHandler)
 	}
 	startServer(handler)
+}
+
+func getConfig() *Config {
+	config := Config{}
+	flag.StringVar(&config.PathToYAML, "yaml", "", "--yaml=path/to/file.yml")
+	flag.StringVar(&config.PathToJSON, "json", "", "--json=path/to/file.json")
+	flag.Parse()
+	return &config
 }
