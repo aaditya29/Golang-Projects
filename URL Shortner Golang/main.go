@@ -62,3 +62,11 @@ func makeMapHandler(mux *http.ServeMux) http.HandlerFunc {
 		"/yaml-godoc":     "https://godoc.org/gopkg.in/yaml.v2",
 	}, mux)
 }
+
+func makeYAMLHandler(yamlBytes []byte, fallbackHandler *http.HandlerFunc) http.HandlerFunc {
+	handler, err := YAMLHandler(yamlBytes, fallbackHandler)
+	if err != nil {
+		panic(err)
+	}
+	return handler
+}
