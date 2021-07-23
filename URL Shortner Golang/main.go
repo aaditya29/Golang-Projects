@@ -70,3 +70,11 @@ func makeYAMLHandler(yamlBytes []byte, fallbackHandler *http.HandlerFunc) http.H
 	}
 	return handler
 }
+
+func makeJSONHandler(jsonBytes []byte, fallbackHandler *http.HandlerFunc) http.HandlerFunc {
+	handler, err := JSONHandler(jsonBytes, fallbackHandler)
+	if err != nil {
+		panic(err)
+	}
+	return handler
+}
