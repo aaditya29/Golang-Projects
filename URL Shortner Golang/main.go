@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"io/ioutil"
+	"net/http"
 )
 
 type Config struct { // Config is a struct describing the configuration which are parsed from command line arguments
@@ -42,4 +43,10 @@ func getFileBytes(pathToFile string) []byte {
 		return nil
 	}
 	return bytes
+}
+
+func makeDefaultMux() *http.ServeMux {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", helloWorldHandler)
+	return mux
 }
