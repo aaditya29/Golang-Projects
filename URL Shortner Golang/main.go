@@ -78,3 +78,8 @@ func makeJSONHandler(jsonBytes []byte, fallbackHandler *http.HandlerFunc) http.H
 	}
 	return handler
 }
+
+func startServer(handler http.HandlerFunc) {
+	fmt.Println("Starting the server on :8080")
+	http.ListenAndServe(":8080", handler)
+}
