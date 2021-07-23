@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -49,4 +50,15 @@ func makeDefaultMux() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", helloWorldHandler)
 	return mux
+}
+
+func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, world!")
+}
+
+func makeMapHandler(mux *http.ServeMux) http.HandlerFunc {
+	return MapHandler(map[string]string{
+		"/urlshort-godoc": "https://godoc.org/github.com/gophercises/urlshort",
+		"/yaml-godoc":     "https://godoc.org/gopkg.in/yaml.v2",
+	}, mux)
 }
