@@ -13,5 +13,5 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) { // handler is the handler function. It has to follow the function signature of a ResponseWriter and Request type as the arguments.
-	fmt.Fprintf(w, "Hello World!")
+	fmt.Fprintf(w, "Hello World!") //Writing Hello World in the response writer.
 }
