@@ -1,4 +1,4 @@
-# GO PROJECTS
+## GO PROJECTS
 
 ### About This Repository
 This repository is about the basic and intermediate level projects using golang.<br>
