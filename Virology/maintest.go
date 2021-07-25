@@ -32,4 +32,10 @@ func TestHandler(t *testing.T) { // In this function, forming a new HTTP request
 			status, http.StatusOK)
 	}
 
+	// Checking if response is expected one or not
+	expected := `Hello World!`
+	actual := recorder.Body.String()
+	if actual != expected {
+		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
+	}
 }
