@@ -25,4 +25,11 @@ func TestHandler(t *testing.T) { // In this function, forming a new HTTP request
 
 	hf := http.HandlerFunc(handler) //creating an HTTP handler from our handler function from file which we want to test.
 
+	hf.ServeHTTP(recorder, req) // serving the HTTP Request to recorder. This line tests the handler we wanna test
+
+	if status := recorder.Code; status != http.StatusOK { // checking STATUS of expected code
+		t.Errorf("handler returned wrong status code: got %v want %v",
+			status, http.StatusOK)
+	}
+
 }
