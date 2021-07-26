@@ -54,4 +54,7 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 	if resp.StatusCode != http.StatusOK { // Code should be '200' if status is OK.
 		t.Errorf("Status should be ok, got %d", resp.StatusCode)
 	}
+
+	//Reading the response body and converting into string now
+	defer resp.Body.Close()
 }
