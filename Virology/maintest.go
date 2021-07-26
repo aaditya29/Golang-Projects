@@ -62,4 +62,9 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	// convert the bytes to a string
+	respString := string(b)
+	expected := "Hello World!"
+
 }
