@@ -47,4 +47,8 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 	//The mockServer will run a server and exposes its location in the URL attribute
 	resp, err := http.Get(mockServer.URL + "/hello") // making a GET request to the "hello" route we defined in the router
 
+	if err != nil { // For handling error
+		t.Fatal(err)
+	}
+
 }
