@@ -67,4 +67,7 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 	respString := string(b)
 	expected := "Hello World!"
 
+	if respString != expected {
+		t.Errorf("Response should be %s, got %s", expected, respString) // Checking if response is expected i.e. Hello World. If it comes as expected then route is correct
+	}
 }
