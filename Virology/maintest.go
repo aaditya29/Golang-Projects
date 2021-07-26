@@ -39,3 +39,9 @@ func TestHandler(t *testing.T) { // In this function, forming a new HTTP request
 		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
 	}
 }
+
+//Testing our routing
+func TestRouter(t *testing.T) { // Instantiating the router using the constructor function that we defined above
+	r := newRouter()
+
+}
