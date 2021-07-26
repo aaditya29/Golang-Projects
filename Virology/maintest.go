@@ -2,6 +2,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -57,4 +58,8 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 
 	//Reading the response body and converting into string now
 	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body) //Reading the body into a collection of bytes (b)
+	if err != nil {
+		t.Fatal(err)
+	}
 }
