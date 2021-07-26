@@ -8,6 +8,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
+//Testing the router
+func newRouter() *mux.Router { // Here we are creating new router function which creates the router and returns it to us.
+	//This function will be used for instantiating and testing the router outside of the main function
+
+}
+
 func main() {
 
 	r := mux.NewRouter() //Declaring a new router
