@@ -18,12 +18,8 @@ func newRouter() *mux.Router { // Here we are creating new router function which
 
 func main() {
 
-	r := mux.NewRouter() //Declaring a new router
-
-	r.HandleFunc("/hello", handler).Methods("GET") //This allows us to declare METHODS this path will be valid for
-
-	http.HandleFunc("/", handler) // The "HandleFunc" method accepts a path and a function as arguments
-
+	// Old router is deleted and new router is now formed by calling the `newRouter` constructor function that we defined above this function.
+	r := newRouter()
 	http.ListenAndServe(":8080", r)
 }
 
