@@ -43,5 +43,8 @@ func TestHandler(t *testing.T) { // In this function, forming a new HTTP request
 //Testing our routing
 func TestRouter(t *testing.T) { // Instantiating the router using the constructor function that we defined above
 	r := newRouter()
+	mockServer := httptest.NewServer(r) // creating a new server for testing purpose
+	//The mockServer will run a server and exposes its location in the URL attribute
+	resp, err := http.Get(mockServer.URL + "/hello") // making a GET request to the "hello" route we defined in the router
 
 }
