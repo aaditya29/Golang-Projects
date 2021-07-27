@@ -99,5 +99,12 @@ func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we 
 
 //Testing static file server
 func TestStaticFileServer(t *testing.T) {
+	r := newRouter()
+	mockServer := httptest.NewServer(r)
 
+	//We want to go in `GET /assets/` route to get the index.html file response
+	resp, err := http.Get(mockServer.URL + "/assets/")
+	if err != nil {
+		t.Fatal(err)
+	}
 }
