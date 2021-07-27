@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+ <title>The Book Of Virus</title>
+</head>
+
+<body>
+  <h1>Everything About Viruses</h1>
+  <!--
+    This section of the document specifies the table that will list type of viruses and their description.
+   -->
+  <table>
+    <tr>
+      <th>Types</th>
+      <th>Description</th>
+    </tr>
+    <td>Flu</td>
+    <td>Common Virus</td>
+    </tr>
+  </table>
+  <br/>
+
+  <!--
+    This section contains the form, that will be used to hit the `POST /virus` API
+   -->
+  <form action="/virus" method="post">
+    Types:
+    <input type="text" name="Types">
+    <br/> Description:
+    <input type="text" name="description">
+    <br/>
+    <input type="submit" value="Submit">
+  </form>
+
+  <!--
+    This section is about the script that will run on each page load to fetch the list of viruses and add them to our existing table
+   -->
+  <script>
+    virusTable = document.querySelector("table")
+
+    /*
+    Use the browsers `fetch` API to make a GET call to /viruses
+    We expect the response to be a JSON list of virus, of the
+    form :
+    [
+      {"types":"...","description":"..."},
+      {"types":"...","description":"..."}
+    ]
+    */
+    fetch("/virus")
+      .then(response => response.json())
+      .then(virusList => {
+        //Once we fetch the list, we iterate over it
+        virusList.forEach(virus => {
+          // Create the table row
+          row = document.createElement("tr")
+
+          // Create the table data elements for the types and description columns
+          types = document.createElement("td")
+          types.innerHTML = virus.types
+          description = document.createElement("td")
+          description.innerHTML = virus.description
+
+          // Adding the data elements to the row
+          row.appendChild(types)
+          row.appendChild(description)
+          // Finally, adding the row element to the table itself
+          virusTable.appendChild(row)
+        })
+      })
+  </script>
+</body>
