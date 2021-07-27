@@ -86,4 +86,10 @@ func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we 
 		t.Errorf("Status should be 405, got %d", resp.StatusCode) //Method 405 is for if method is not allowed
 	}
 
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
 }
