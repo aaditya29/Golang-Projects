@@ -16,4 +16,7 @@ func getVirusHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
+	//Writing list of viruses to the response
+	w.Write(virusListBytes)
 }
