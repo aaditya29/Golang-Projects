@@ -20,3 +20,4 @@ func getVirusHandler(w http.ResponseWriter, r *http.Request) {
 	//Writing list of viruses to the response
 	w.Write(virusListBytes)
 }
+
