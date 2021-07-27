@@ -73,5 +73,9 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 }
 
 func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we hit any other route than GET/hello
+	r := newRouter()
+	mockServer := httptest.NewServer(r)
+	//Making request to route we didn't define before this function for example POST /hello route
+	resp, err := http.Post(mockServer.URL+"/hello", "", nil)
 
 }
