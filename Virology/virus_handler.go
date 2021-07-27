@@ -21,3 +21,7 @@ func getVirusHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(virusListBytes)
 }
 
+// Handler to create new entry of viruses
+func createVirusHandler(w http.ResponseWriter, r *http.Request) {
+
+}
