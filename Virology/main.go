@@ -13,6 +13,10 @@ func newRouter() *mux.Router { // Here we are creating new router function which
 	//This function will be used for instantiating and testing the router outside of the main function
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", handler).Methods("GET")
+
+	//Declaring static file directory and pointing to it
+	staticFileDirectory := http.Dir("./assets/")
+	//Declaring handler that router requsts with filename
 	return r
 }
 
