@@ -71,3 +71,7 @@ func TestRouter(t *testing.T) { // Instantiating the router using the constructo
 		t.Errorf("Response should be %s, got %s", expected, respString) // Checking if response is expected i.e. Hello World. If it comes as expected then route is correct
 	}
 }
+
+func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we hit any other route than GET/hello
+
+}
