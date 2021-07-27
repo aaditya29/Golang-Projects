@@ -7,3 +7,6 @@ type Virus struct {
 var virus []Virus
 
 //Defining handler to fetch the details of all the viruses
+func getVirusHandler(w http.ResponseWriter, r *http.Request) {
+
+}
