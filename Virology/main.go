@@ -19,6 +19,10 @@ func newRouter() *mux.Router { // Here we are creating new router function which
 	//Declaring handler that router requsts with filename
 	staticFileHandler := http.StripPrefix("/assets/", http.FileServer(staticFileDirectory)) // The fileserver is wrapped in the `stripPrefix` method
 	r.PathPrefix("/assets/").Handler(staticFileHandler).Methods("GET")                      //The "PathPrefix" method acts as a matcher, and matches all routes starting with "/assets/", instead of the absolute route itself
+
+	//Adding virusHandlers to our router
+	r.HandleFunc("/virus", getVirusHandler).Methods("GET")
+	r.HandleFunc("/bird", createVirusHandler).Methods("POST")
 	return r
 }
 
