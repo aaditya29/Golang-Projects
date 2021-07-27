@@ -78,4 +78,12 @@ func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we 
 	//Making request to route we didn't define before this function for example POST /hello route
 	resp, err := http.Post(mockServer.URL+"/hello", "", nil)
 
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if resp.StatusCode != http.StatusMethodNotAllowed {
+		t.Errorf("Status should be 405, got %d", resp.StatusCode) //Method 405 is for if method is not allowed
+	}
+
 }
