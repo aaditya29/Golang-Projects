@@ -107,4 +107,9 @@ func TestStaticFileServer(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("Status should be 200, got %d", resp.StatusCode) //Keeping status '200' i.e. OK
+	}
+
 }
