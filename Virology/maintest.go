@@ -92,4 +92,7 @@ func TestRouterForNonExistentRoute(t *testing.T) { //function for testing if we 
 		t.Fatal(err)
 	}
 
+	respString := string(b)
+	expected := "" //Expecting empty sting this time unlike in previous function where expected response was Hello World
+
 }
