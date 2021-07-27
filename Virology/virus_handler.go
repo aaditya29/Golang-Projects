@@ -35,4 +35,11 @@ func createVirusHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Get the information about the virus from the form info
+	virus.types = r.Form.Get("types")
+	virus.Description = r.Form.Get("description")
+
+	// Append our existing list of virus with a new entry
+	viruses = append(viruses, virus)
+
 }
