@@ -8,3 +8,4 @@ This project website will :
 <b>Note: Database is yet to be added.</b>
 
 For now only the information about different kinds of viruses are getting stored and retrieved. Since the detail is in memory anytime we restart your application, all the data gets erased.
+Therefore we'll have to add the database so that data stays permanent.
