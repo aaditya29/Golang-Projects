@@ -22,7 +22,7 @@ func newRouter() *mux.Router { // Here we are creating new router function which
 
 	//Adding virusHandlers to our router
 	r.HandleFunc("/virus", getVirusHandler).Methods("GET")
-	r.HandleFunc("/bird", createVirusHandler).Methods("POST")
+	r.HandleFunc("/virus", createVirusHandler).Methods("POST")
 	return r
 }
 
