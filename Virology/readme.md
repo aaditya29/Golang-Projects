@@ -6,3 +6,5 @@ This project website will :
 2. Allow people to post a new entry of virus in case if any new discovered in future.<br>
 
 <b>Note: Database is yet to be added.</b>
+
+For now only the information about different kinds of viruses are getting stored and retrieved.
