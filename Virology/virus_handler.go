@@ -5,3 +5,5 @@ type Virus struct {
 }
 
 var virus []Virus
+
+//Defining handler to fetch the details of all the viruses
