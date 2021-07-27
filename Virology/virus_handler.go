@@ -29,4 +29,10 @@ func createVirusHandler(w http.ResponseWriter, r *http.Request) {
 	//Sending all our data as HTML form data
 	err := r.ParseForm() //the `ParseForm` method of the request, parses the form values
 
+	if err != nil { //if error occurs
+		fmt.Println(fmt.Errorf("Error: %v", err))
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
 }
