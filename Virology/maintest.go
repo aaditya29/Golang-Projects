@@ -112,4 +112,7 @@ func TestStaticFileServer(t *testing.T) {
 		t.Errorf("Status should be 200, got %d", resp.StatusCode) //Keeping status '200' i.e. OK
 	}
 
+	contentType := resp.Header.Get("Content-Type")    //HTML File can be huge to test so we do testing on the
+	expectedContentType := "text/html; charset=utf-8" //content-type header is "text/html; charset=utf-8" making sure that an html file has been served
+
 }
