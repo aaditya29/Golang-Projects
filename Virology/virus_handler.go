@@ -42,4 +42,7 @@ func createVirusHandler(w http.ResponseWriter, r *http.Request) {
 	// Append our existing list of virus with a new entry
 	viruses = append(viruses, virus)
 
+	//redirecting the user to the original HTMl page using the http libraries `Redirect` method
+	http.Redirect(w, r, "/assets/", http.StatusFound)
+
 }
