@@ -23,5 +23,10 @@ func getVirusHandler(w http.ResponseWriter, r *http.Request) {
 
 // Handler to create new entry of viruses
 func createVirusHandler(w http.ResponseWriter, r *http.Request) {
+	//Creating new instance of virus
+	virus := Virus{}
+
+	//Sending all our data as HTML form data
+	err := r.ParseForm() //the `ParseForm` method of the request, parses the form values
 
 }
